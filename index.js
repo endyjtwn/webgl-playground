@@ -107,7 +107,7 @@ function init() {
     var floor = new THREE.Mesh(floorGeometry, floorMaterial);
     scene.add(floor);
     // objects
-    var boxGeometry = new THREE.BoxBufferGeometry(20, 20, 20);
+    var boxGeometry = new THREE.BoxBufferGeometry(20, 40, 20);
     boxGeometry = boxGeometry.toNonIndexed(); // ensure each face has unique vertices
     position = boxGeometry.attributes.position;
     colors = [];
@@ -116,13 +116,13 @@ function init() {
         colors.push(color.r, color.g, color.b);
     }
     boxGeometry.addAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-    for (var i = 0; i < 500; i++) {
+    for (var i = 0; i < 100; i++) {
         var boxMaterial = new THREE.MeshPhongMaterial({ specular: 0xffffff, flatShading: true, vertexColors: THREE.VertexColors });
         boxMaterial.color.setHSL(Math.random() * 0.2 + 0.5, 0.75, Math.random() * 0.25 + 0.75);
         var box = new THREE.Mesh(boxGeometry, boxMaterial);
-        box.position.x = Math.floor(Math.random() * 20 - 10) * 20;
-        box.position.y = Math.floor(Math.random() * 20) * 20 + 10;
-        box.position.z = Math.floor(Math.random() * 20 - 10) * 20;
+        box.position.x = Math.floor(Math.random() * 15 - 10) * 15;
+        // box.position.y = Math.floor(Math.random() * 15) * 20 + 10;
+        box.position.z = Math.floor(Math.random() * 15 - 10) * 15;
         scene.add(box);
         objects.push(box);
     }
